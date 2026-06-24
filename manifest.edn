@@ -1,0 +1,48 @@
+;; mitsuho 瑞穂 — actor manifest (Gen-3 kotoba-native)
+;; Food & Agriculture actor (tier-b) focused on sustainable cultivation, harvest,
+;; preservation, and distribution of food via autonomous robotics.
+;; ADR-2605261015 (R0 scaffold) · Derived from mitsuho/CLAUDE.md.
+{:actor/id        "mitsuho"
+ :actor/glyph     "瑞穂"
+ :actor/tier      :tier-b
+ :actor/domain    "mitsuho.etzhayyim.com"
+ :actor/purpose   "Autonomous food production system for sustainable cultivation, harvest, and preservation. Focus on seed sovereignty, soil regeneration, and chemical-free agriculture. Operates through interconnected Pregel cells for various stages of food production."
+ :actor/status    :r0
+ :actor/adr       "2605261015"
+ :actor/related   ["2605261000" "2605252615" "2605261500" "2605261600"]
+
+ :actor/charter-rider
+ {:rider/version "2.0"
+  :rider/applied true}
+
+ :actor/gates
+ [{:gate/id "G1"  :gate/name "murakumo-only"           :gate/rule "Inference is Murakumo-only: llm.infer(model="gemma3:4b", ...) (kotoba host import at 127.0.0.1:4000). Never import openai/anthropic/litellm/requests."}
+  {:gate/id "G2"  :gate/name "kotoba-eavt-native"      :gate/rule "State is kotoba EAVT Datoms (no SQL/RisingWave/Cypher)."}
+  {:gate/id "G3"  :gate/name "tithe-non-fiat"          :gate/rule "Payments are USDC Base L2 + ERC-4337 + TitheRouter 10%, never Stripe/fiat."}
+  {:gate/id "G4"  :gate/name "no-server-key"           :gate/rule "Platform holds no key (member/operator signs)."}
+  {:gate/id "G5"  :gate/name "consent-bound"           :gate/rule "Real outward actions stay gated (compute-only R0; settlement stops at 'intent')."}
+  {:gate/id "G6"  :gate/name "pii-encrypted"           :gate/rule "PII is encrypted and DID-bound."}
+  {:gate/id "G7"  :gate/name "seed-sovereignty"        :gate/rule "All varietals from open-source seed banks (Svalbard / NAVDANYA / national gene banks). Schema rejects any seedSource field referencing patented commercial lines."}
+  {:gate/id "G8"  :gate/name "soil-regeneration"       :gate/rule "Annual soil-carbon + microbial-diversity assay. harvestAttestation schema requires soilCarbonDeltaTonsCo2Eq field; negative value → halt + Council review."}
+  {:gate/id "G9"  :gate/name "no-synthetic-pesticides" :gate/rule "cropPlanAttestation.pesticideManifest rejects neonicotinoid / glyphosate / paraquat / organochlorine class."}
+  {:gate/id "G10" :gate/name "gmo-attestation"         :gate/rule "No GMO without attestation: cropPlanAttestation.varietalAttestationCid references Council Lv6+ ≥3 sig if any CRISPR/transgenic varietal."}]
+
+ :actor/cells
+ [{:cell/id "field_cultivation"        :cell/kind :langgraph :cell/runtime :wasm}
+  {:cell/id "aquaculture"              :cell/kind :langgraph :cell/runtime :wasm}
+  {:cell/id "alt_protein_fermentation" :cell/kind :langgraph :cell/runtime :wasm}
+  {:cell/id "harvest_robotics"         :cell/kind :langgraph :cell/runtime :wasm}
+  {:cell/id "food_preservation"        :cell/kind :langgraph :cell/runtime :wasm}
+  {:cell/id "autonomous_mobile"        :cell/kind :langgraph :cell/runtime :wasm}]
+
+ :actor/lex
+ [{:lex/id "parcelAttestation"}
+  {:lex/id "cropPlanAttestation"}
+  {:lex/id "harvestAttestation"}
+  {:lex/id "foodLotAttestation"}
+  {:lex/id "silenAgricultureReview"}]
+
+ ;; legacy artifacts pending decommission
+ :actor/legacy
+ {:manifest    "actor-manifest.jsonld"
+  :note "Legacy actor-manifest.jsonld, pending removal after full Gen-3 migration."}}
