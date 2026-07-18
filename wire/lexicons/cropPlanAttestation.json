@@ -1,0 +1,25 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.mitsuho.cropPlanAttestation",
+  "description": "Per-season crop plan attestation. Varietals + rotation + organic-only confirmation. G2 (seed sovereignty) + G6 (no synthetic pesticides) + G7 (no GMO without Council attestation) structural enforcement. Per ADR-2605261015.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "record": {
+        "type": "object",
+        "properties": {
+          "parcelDid": {"type": "string"},
+          "season": {"type": "string"},
+          "varietalManifest": {"type": "array", "items": {"type": "object"}},
+          "seedSourceAttestation": {"type": "string", "description": "Open-source seed bank reference (Svalbard / NAVDANYA / national gene bank); G2 rejects patented commercial lines"},
+          "rotationPlan": {"type": "array", "items": {"type": "string"}},
+          "organicCertificationCid": {"type": "string"},
+          "pesticideManifest": {"type": "array", "items": {"type": "string"}, "description": "IPM + organic-certified inputs only; G6 rejects neonic/glyphosate/paraquat/organochlorine class"},
+          "gmoAttestationCid": {"type": "string", "description": "If any CRISPR/transgenic varietal: Council Lv6+ ≥3 sig required (G7)"},
+          "attestingAgronomistDid": {"type": "string"}
+        },
+        "required": ["parcelDid", "season", "varietalManifest", "seedSourceAttestation", "rotationPlan", "attestingAgronomistDid"]
+      }
+    }
+  }
+}

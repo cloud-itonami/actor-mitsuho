@@ -1,4 +1,4 @@
-# 20-actors/mitsuho — CLAUDE.md
+# com-etzhayyim-mitsuho — CLAUDE.md
 
 ## Identity
 
@@ -89,14 +89,14 @@ the clj port reached parity (py↔clj deep-parity was verified before removal).
 
 **Test**:
 ```bash
-cd 20-actors/mitsuho
+cd com-etzhayyim-mitsuho
 ./run_tests.sh           # cljc-only: methods.test-agent + methods.test-charter-gates + cells.test-cells
 ```
 
 ## Related Files
 
-- `/20-actors/mitsuho/manifest.jsonld` — DID + cell registry
+- `/manifest.jsonld` — DID + cell registry
 - `/90-docs/adr/2605261015-mitsuho-food-agriculture-tier-b-actor-r0.md` — Master ADR
 - `/90-docs/adr/2605261000-labor-liberation-transition-mechanism.md` — Liberation Ladder (L2 gate)
-- `/20-actors/kuni-umi/README.md` — Robotics class lineage
+- `/orgs/etzhayyim/com-etzhayyim-kuni-umi/README.md` — Robotics class lineage
 - `/CLAUDE.md` — Religious-corp status table

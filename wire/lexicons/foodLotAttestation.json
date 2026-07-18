@@ -1,0 +1,26 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.mitsuho.foodLotAttestation",
+  "description": "Preserved food lot attestation. kJ/kg + macros + shelf-life + handling. Distribution → hagukumi meal_delivery (L4) or direct adherent (L2). Per ADR-2605261015.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "record": {
+        "type": "object",
+        "properties": {
+          "lotId": {"type": "string"},
+          "harvestAttestationCid": {"type": "string"},
+          "preservationMethod": {"type": "string", "knownValues": ["dried", "canned", "lacto-fermented", "cold-stored", "vacuum-sealed", "freeze-dried"]},
+          "kJPerKg": {"type": "integer"},
+          "macroProfileCid": {"type": "string", "description": "Protein/fat/carb/fiber breakdown + micronutrient panel"},
+          "shelfLifeMonths": {"type": "integer"},
+          "handlingInstructionsCid": {"type": "string"},
+          "wasteLogCid": {"type": "string", "description": "G14: consumed/composted/spoiled/donated % per harvest"},
+          "distributionTarget": {"type": "string", "knownValues": ["hagukumi-meal-delivery", "direct-adherent-L2", "religious-corp-internal", "outside-donation"]},
+          "attestingRobots": {"type": "array", "items": {"type": "string"}, "minItems": 2}
+        },
+        "required": ["lotId", "harvestAttestationCid", "preservationMethod", "kJPerKg", "shelfLifeMonths", "wasteLogCid", "attestingRobots"]
+      }
+    }
+  }
+}

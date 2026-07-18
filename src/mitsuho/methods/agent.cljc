@@ -23,7 +23,7 @@
   real agricultural work and does not broadcast settlements (both G5-gated; settlement
   stops at :intent).
 
-  Run:  bb --classpath 20-actors 20-actors/mitsuho/py/agent.clj"
+  Run:  bb --classpath 20-actors py/agent.clj"
   (:require [clojure.string :as str]))
 
 ;; ── constants ──────────────────────────────────────────────────────────────────

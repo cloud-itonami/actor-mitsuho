@@ -1,0 +1,27 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.mitsuho.harvestAttestation",
+  "description": "Per-harvest attestation. Yield + quality + ≥2 robot witness sigs + ≥1 agronomist + IPFS photo CID + soil delta. G3 witness quorum + G4 soil regeneration + G11 honest reporting + G12 energy cap structural enforcement. Per ADR-2605261015.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "record": {
+        "type": "object",
+        "properties": {
+          "parcelDid": {"type": "string"},
+          "harvestDate": {"type": "string"},
+          "cropPlanAttestationCid": {"type": "string"},
+          "yieldKgDryMatter": {"type": "number"},
+          "yieldQualityCid": {"type": "string"},
+          "photoCid": {"type": "string"},
+          "depthMapCid": {"type": "string"},
+          "soilCarbonDeltaTonsCo2Eq": {"type": "number", "description": "G4: must be ≥0 net (regenerative or neutral); negative → halt + Council review"},
+          "energyConsumedKwh": {"type": "number", "description": "G12 cap: ≤1 kWh/kg dry-matter R2; ≤0.5 kWh/kg R3"},
+          "attestingRobots": {"type": "array", "items": {"type": "string"}, "minItems": 2, "description": "G3: ≥2 distinct robot DIDs (Ed25519)"},
+          "attestingAgronomistDid": {"type": "string", "description": "G3: ≥1 human agronomist attestation"}
+        },
+        "required": ["parcelDid", "harvestDate", "cropPlanAttestationCid", "yieldKgDryMatter", "photoCid", "soilCarbonDeltaTonsCo2Eq", "attestingRobots", "attestingAgronomistDid"]
+      }
+    }
+  }
+}

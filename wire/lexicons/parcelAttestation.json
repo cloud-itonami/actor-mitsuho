@@ -1,0 +1,25 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.mitsuho.parcelAttestation",
+  "description": "Agricultural parcel registration. Soil + water + climate baseline + biodiversity-no-harm. Per ADR-2605261015. R0 stub; full schema R1+.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "record": {
+        "type": "object",
+        "properties": {
+          "parcelDid": {"type": "string"},
+          "landsRegistryCid": {"type": "string"},
+          "areaHectares": {"type": "number"},
+          "soilClassification": {"type": "string"},
+          "soilCarbonBaselineTonsCo2EqPerHa": {"type": "number"},
+          "waterSourceSustainableYieldM3PerYear": {"type": "number"},
+          "climateBaselineCid": {"type": "string"},
+          "biodiversityNoHarmAttestationCid": {"type": "string"},
+          "attestingAgronomistDid": {"type": "string"}
+        },
+        "required": ["parcelDid", "landsRegistryCid", "areaHectares", "biodiversityNoHarmAttestationCid", "attestingAgronomistDid"]
+      }
+    }
+  }
+}

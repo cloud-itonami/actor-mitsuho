@@ -1,0 +1,31 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.mitsuho.silenAgricultureReview",
+  "description": "Council attestation scope for mitsuho agricultural decisions. Parallel to silenPharmaReview / silenForceReview / silenEnergyReview. Per ADR-2605261015.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "record": {
+        "type": "object",
+        "properties": {
+          "scope": {"type": "string", "knownValues": [
+            "wave-1-r0-charter-baseline",
+            "r1-benchtop-activation",
+            "r2-pilot-activation",
+            "r3-community-scale-activation",
+            "g7-gmo-attestation-case",
+            "g4-soil-degradation-anomaly",
+            "g6-pesticide-exception-request",
+            "n1-animal-product-r4-gate"
+          ]},
+          "subject": {"type": "string"},
+          "attestingCouncilMembers": {"type": "array", "items": {"type": "string"}, "minItems": 3, "description": "Council Lv6+ ≥3"},
+          "attestationTimestamp": {"type": "string"},
+          "decisionCid": {"type": "string"},
+          "publicCommentPeriodEnded": {"type": "string"}
+        },
+        "required": ["scope", "subject", "attestingCouncilMembers", "attestationTimestamp", "decisionCid"]
+      }
+    }
+  }
+}

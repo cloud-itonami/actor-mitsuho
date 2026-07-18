@@ -8,7 +8,7 @@ no synthetic pesticides, GMO Council-gated, no animal slaughter in R0–R3.
 |---|---|
 | Lexicons | ✅ 5 under `com.etzhayyim.mitsuho.*` (parcel / cropPlan / harvest / foodLot / silenAgricultureReview) |
 | Cells | 🟡 path-reserved (R0) |
-| Manifest | ✅ `manifest.jsonld` — `constitutionalGates` (G1–G14) + `nonGoals` (N1–N10) machine-readable |
+| Manifest | ✅ `manifest.edn` — `constitutionalGates` (G1–G14) + `nonGoals` (N1–N10) machine-readable |
 | Tests | ✅ **cljc-only** — `methods/test_charter_gates.cljc` (**8**: gate set + seed sovereignty + pesticide/GMO hooks + soil-carbon + witness/agronomist + biodiversity/LANDS + non-chemical preservation + N1 R4-gate) **+** `methods/test_agent.cljc` (11, agent layer) **+** `cells/test_cells.cljc` (6 R0 cell scaffolds raise); `./run_tests.sh` aggregates all three. Fully ported py→cljc (ADR-2606160842); legacy `py/` pruned. |
 | Methods | ✅ clj-native `methods/agent.cljc`; offline agronomy engine = R1 |
 

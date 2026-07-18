@@ -9,7 +9,7 @@
 ;;   G3/G5  settlement stops at :intent; tithe split 10%
 ;;   G4  settlement executes only with member sig
 ;;
-;; Run:  bb --classpath 20-actors 20-actors/mitsuho/py/test_agent.clj
+;; Run:  bb --classpath 20-actors py/test_agent.clj
 (ns mitsuho.methods.test-agent
   (:require [clojure.test :refer [deftest is testing run-tests]]
             [mitsuho.methods.agent :as agent]))

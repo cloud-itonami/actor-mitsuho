@@ -7,14 +7,13 @@
 
 (def ^:private here (.getParentFile (java.io.File. ^String *file*)))
 (def ^:private actor-dir (.getParentFile here))
-(def ^:private actor-name (.getName actor-dir))
 (def ^:private root (.. actor-dir getParentFile getParentFile))
-(def ^:private lexdir (java.io.File. root (str "00-contracts/lexicons/com/etzhayyim/" actor-name)))
+(def ^:private lexdir (java.io.File. root "wire/lexicons"))
 
 (def ^:private non-chemical-preservation
   #{"dried" "canned" "lacto-fermented" "cold-stored" "vacuum-sealed" "freeze-dried"})
 
-(defn- manifest [] (json/parse-string (slurp (java.io.File. actor-dir "manifest.jsonld"))))
+(defn- manifest [] (:actor/manifest (clojure.edn/read-string (slurp (java.io.File. root "manifest.edn")))))
 (defn- lex [name] (json/parse-string (slurp (java.io.File. lexdir (str name ".json")))))
 
 (defn- collect [doc attr]
