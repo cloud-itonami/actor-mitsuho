@@ -1,26 +1,6 @@
-{
-  "lexicon": 1,
-  "id": "com.etzhayyim.mitsuho.foodLotAttestation",
-  "description": "Preserved food lot attestation. kJ/kg + macros + shelf-life + handling. Distribution → hagukumi meal_delivery (L4) or direct adherent (L2). Per ADR-2605261015.",
-  "defs": {
-    "main": {
-      "type": "record",
-      "record": {
-        "type": "object",
-        "properties": {
-          "lotId": {"type": "string"},
-          "harvestAttestationCid": {"type": "string"},
-          "preservationMethod": {"type": "string", "knownValues": ["dried", "canned", "lacto-fermented", "cold-stored", "vacuum-sealed", "freeze-dried"]},
-          "kJPerKg": {"type": "integer"},
-          "macroProfileCid": {"type": "string", "description": "Protein/fat/carb/fiber breakdown + micronutrient panel"},
-          "shelfLifeMonths": {"type": "integer"},
-          "handlingInstructionsCid": {"type": "string"},
-          "wasteLogCid": {"type": "string", "description": "G14: consumed/composted/spoiled/donated % per harvest"},
-          "distributionTarget": {"type": "string", "knownValues": ["hagukumi-meal-delivery", "direct-adherent-L2", "religious-corp-internal", "outside-donation"]},
-          "attestingRobots": {"type": "array", "items": {"type": "string"}, "minItems": 2}
-        },
-        "required": ["lotId", "harvestAttestationCid", "preservationMethod", "kJPerKg", "shelfLifeMonths", "wasteLogCid", "attestingRobots"]
-      }
-    }
-  }
-}
+[ {
+  "db/id" : -1,
+  "lex.foodLotAttestation/lexicon" : 1,
+  "lex.foodLotAttestation/id" : "com.etzhayyim.mitsuho.foodLotAttestation",
+  "lex.foodLotAttestation/defs" : "{:main {:type \"record\", :key \"tid\", :record {:type \"object\", :required [\"foodLotId\" \"harvestId\" \"processingDate\" \"kilojoulesPerKg\" \"macronutrients\" \"shelfLifeDays\" \"handlingInstructions\"], :properties {:foodLotId {:type \"string\", :description \"Unique identifier for the processed food lot.\"}, :harvestId {:type \"string\", :description \"Reference to the harvest event from which this food lot originated.\"}, :processingDate {:type \"string\", :format \"date-time\", :description \"Date and time of processing.\"}, :kilojoulesPerKg {:type \"number\", :description \"Energy content of the food lot in kilojoules per kilogram.\"}, :macronutrients {:type \"object\", :properties {:protein {:type \"number\"}, :carbohydrate {:type \"number\"}, :fat {:type \"number\"}}, :description \"Macronutrient breakdown (g per 100g).\"}, :shelfLifeDays {:type \"number\", :description \"Estimated shelf life in days.\"}, :handlingInstructions {:type \"string\", :description \"Instructions for storage and handling.\"}, :packagingType {:type \"string\", :description \"Type of packaging used.\"}}}}}"
+} ]
