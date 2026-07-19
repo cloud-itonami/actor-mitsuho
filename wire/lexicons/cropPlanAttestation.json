@@ -1,25 +1,6 @@
-{
-  "lexicon": 1,
-  "id": "com.etzhayyim.mitsuho.cropPlanAttestation",
-  "description": "Per-season crop plan attestation. Varietals + rotation + organic-only confirmation. G2 (seed sovereignty) + G6 (no synthetic pesticides) + G7 (no GMO without Council attestation) structural enforcement. Per ADR-2605261015.",
-  "defs": {
-    "main": {
-      "type": "record",
-      "record": {
-        "type": "object",
-        "properties": {
-          "parcelDid": {"type": "string"},
-          "season": {"type": "string"},
-          "varietalManifest": {"type": "array", "items": {"type": "object"}},
-          "seedSourceAttestation": {"type": "string", "description": "Open-source seed bank reference (Svalbard / NAVDANYA / national gene bank); G2 rejects patented commercial lines"},
-          "rotationPlan": {"type": "array", "items": {"type": "string"}},
-          "organicCertificationCid": {"type": "string"},
-          "pesticideManifest": {"type": "array", "items": {"type": "string"}, "description": "IPM + organic-certified inputs only; G6 rejects neonic/glyphosate/paraquat/organochlorine class"},
-          "gmoAttestationCid": {"type": "string", "description": "If any CRISPR/transgenic varietal: Council Lv6+ ≥3 sig required (G7)"},
-          "attestingAgronomistDid": {"type": "string"}
-        },
-        "required": ["parcelDid", "season", "varietalManifest", "seedSourceAttestation", "rotationPlan", "attestingAgronomistDid"]
-      }
-    }
-  }
-}
+[ {
+  "db/id" : -1,
+  "lex.cropPlanAttestation/lexicon" : 1,
+  "lex.cropPlanAttestation/id" : "com.etzhayyim.mitsuho.cropPlanAttestation",
+  "lex.cropPlanAttestation/defs" : "{:main {:type \"record\", :key \"tid\", :record {:type \"object\", :required [\"cropPlanId\" \"parcelId\" \"season\" \"varietals\" \"pesticideManifest\" \"organicCertification\"], :properties {:cropPlanId {:type \"string\", :description \"Unique identifier for the crop plan.\"}, :parcelId {:type \"string\", :description \"Reference to the parcel where the crop will be cultivated.\"}, :season {:type \"string\", :description \"Agricultural season for the plan (e.g., 'Spring 2026').\"}, :varietals {:type \"array\", :items {:type \"string\"}, :description \"List of varietals to be planted.\"}, :pesticideManifest {:type \"array\", :items {:type \"string\"}, :description \"List of pesticides to be used (must be empty for G9 compliance).\"}, :organicCertification {:type \"boolean\", :description \"True if the plan is organically certified.\"}, :gmoAttestationCid {:type \"string\", :nullable true, :description \"CID reference to Council Lv6+ ≥3 sig attestation for GMO varietals (if applicable, G10).\"}, :rotationPlan {:type \"array\", :items {:type \"string\"}, :description \"Planned crop rotation for soil health.\"}}}}}"
+} ]
