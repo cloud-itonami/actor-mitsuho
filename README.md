@@ -1,5 +1,10 @@
 # mitsuho (瑞穂) — Food / Agriculture Tier-B Actor
 
+Canonical repository: `cloud-itonami/actor-mitsuho`. This governed, resident
+food-and-agriculture actor belongs to the Itonami public-operations plane. Its
+production effects remain Council-, witness-, and resource-gated; Tamaki
+separately owns artificial-organism evolution.
+
 **DID**: `did:web:etzhayyim.com:mitsuho`
 **Namespace**: `com.etzhayyim.mitsuho.*`
 **ADR**: ADR-2605261015 (R0 scaffold)

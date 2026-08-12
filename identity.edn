@@ -1,3 +1,4 @@
-{:repository/id "com-etzhayyim-mitsuho" :repository/type :actor
+{:repository/id "cloud-itonami/actor-mitsuho" :repository/type :actor
+ :repository/aliases ["etzhayyim/com-etzhayyim-mitsuho"]
  :actor/id :mitsuho :actor/did "did:web:etzhayyim.com:mitsuho"
  :canonical-format :edn}
