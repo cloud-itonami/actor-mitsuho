@@ -1,6 +1,7 @@
 (ns mitsuho.methods.test-charter-gates
   "mitsuho — constitutional-gate conformance tests. Substrate-native Clojure (ADR-2606160842); 1:1 port of pruned test_charter_gates.py."
   (:require [clojure.test :refer [deftest is run-tests]]
+            [clojure.edn :as edn]
             [clojure.set :as set]
             [clojure.string :as str]
             [cheshire.core :as json]))
@@ -14,7 +15,19 @@
   #{"dried" "canned" "lacto-fermented" "cold-stored" "vacuum-sealed" "freeze-dried"})
 
 (defn- manifest [] (:actor/manifest (clojure.edn/read-string (slurp (java.io.File. root "manifest.edn")))))
-(defn- lex [name] (json/parse-string (slurp (java.io.File. lexdir (str name ".json")))))
+(defn- lex [name]
+  (let [wire (json/parse-string (slurp (java.io.File. lexdir (str name ".json"))))
+        entity (when (and (sequential? wire) (= 1 (count wire))) (first wire))
+        defs (when (map? entity)
+               (some (fn [[attribute value]]
+                       (when (str/ends-with? attribute "/defs") value))
+                     entity))]
+    ;; wire/lexicons is the JSON projection of canonical Datomic tx-data.
+    ;; Nested lexicon defs therefore remain an EDN blob; normalize them back
+    ;; to string-keyed data so the gate walkers test the actual contract.
+    (if (string? defs)
+      (json/parse-string (json/generate-string (edn/read-string defs)))
+      wire)))
 
 (defn- collect [doc attr]
   (let [acc (atom {})]
