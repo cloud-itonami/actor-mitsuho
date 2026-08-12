@@ -1,0 +1,5 @@
+{:repo/id "cloud-itonami/actor-mitsuho"
+ :repo/aliases ["etzhayyim/com-etzhayyim-mitsuho"]
+ :repo/role :governed-executable-actor
+ :repo/execution :resident
+ :repo/boundary "Community food and agriculture operations only; witness and resource gates bound production, and Tamaki owns organism evolution."}
