@@ -4,7 +4,7 @@
 (ns mitsuho.kotoba.ingest-mcp
   "mitsuho 瑞穂 — MCP seed-ingest scaffold (dry-run default, live path placeholder).
   ADR-2605261015. Template: see funadaiku.kotoba.ingest-mcp."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])))
 
 (def default-url   "http://127.0.0.1:8077")

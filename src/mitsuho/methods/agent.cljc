@@ -24,7 +24,7 @@
   stops at :intent).
 
   Run:  bb --classpath 20-actors py/agent.clj"
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 ;; ── constants ──────────────────────────────────────────────────────────────────
 (def ^:private tithe-bps 1000)  ; 10% TitheRouter auto-split (G3), basis points
@@ -50,7 +50,7 @@
   Rejects patented commercial lines."
   [seed-source]
   (let [allowed-sources #{"svalbard" "navdanya" "national" "public"}
-        source-lower (str/lower-case seed-source)]
+        source-lower (str/lower seed-source)]
     (if (some #(str/includes? source-lower %) allowed-sources)
       {:valid true  :reason "open-source seed bank attested"}
       {:valid false :reason (str "seed source '" seed-source "' not on approved list (G7)")})))
@@ -60,7 +60,7 @@
   "G9: No synthetic pesticides (neonicotinoid / glyphosate / paraquat / organochlorine)."
   [pesticides]
   (let [hits (filter (fn [p]
-                       (some #(str/includes? (str/lower-case p) %) prohibited-pesticides))
+                       (some #(str/includes? (str/lower p) %) prohibited-pesticides))
                      pesticides)]
     (if (seq hits)
       ;; match py's f-string list repr exactly (Python list = single quotes, ", " sep) so the
