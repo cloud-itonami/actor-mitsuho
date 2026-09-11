@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; mitsuho 瑞穂 — agent gate tests (Clojure port of test_agent.py).
 ;;
 ;; ADR-2605261015, R0 scaffold. Exercises the 5 handlers + settlement + gates with
@@ -9,7 +9,7 @@
 ;;   G3/G5  settlement stops at :intent; tithe split 10%
 ;;   G4  settlement executes only with member sig
 ;;
-;; Run:  bb --classpath 20-actors py/test_agent.clj
+;; Run:  kbb --classpath 20-actors py/test_agent.clj
 (ns mitsuho.methods.test-agent
   (:require [clojure.test :refer [deftest is testing run-tests]]
             [mitsuho.methods.agent :as agent]))
