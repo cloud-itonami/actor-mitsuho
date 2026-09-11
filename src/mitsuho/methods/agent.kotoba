@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; Working Clojure port of py/agent.py (mitsuho food & agriculture actor).
 (ns mitsuho.methods.agent
   "mitsuho 瑞穂 — food & agriculture langgraph actor (kotoba WASM cell).
@@ -23,7 +23,7 @@
   real agricultural work and does not broadcast settlements (both G5-gated; settlement
   stops at :intent).
 
-  Run:  bb --classpath 20-actors py/agent.clj"
+  Run:  kbb --classpath 20-actors py/agent.clj"
   (:require [kotoba.lang.text :as str]))
 
 ;; ── constants ──────────────────────────────────────────────────────────────────

@@ -1,4 +1,4 @@
-#!/usr/bin/env bb
+#!/usr/bin/env kbb
 ;; edn-datomize.bb — EDN → Datomic/Datascript tx-data 変換ツール。
 ;; com-junkawasaki/root superproject の manifest/edn-datomize.bb を
 ;; com-etzhayyim-mitsuho 用に移植（schema-path を repo root に調整 + ns-preserving
