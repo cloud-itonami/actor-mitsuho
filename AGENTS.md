@@ -1,4 +1,4 @@
-# cloud-itonami/actor-mitsuho — CLAUDE.md
+# cloud-itonami/actor-mitsuho — AGENTS.md
 
 Canonical repository: `https://github.com/cloud-itonami/actor-mitsuho`.
 The former `etzhayyim/com-etzhayyim-mitsuho` path is a compatibility redirect.
@@ -102,4 +102,4 @@ cd com-etzhayyim-mitsuho
 - `/90-docs/adr/2605261015-mitsuho-food-agriculture-tier-b-actor-r0.md` — Master ADR
 - `/90-docs/adr/2605261000-labor-liberation-transition-mechanism.md` — Liberation Ladder (L2 gate)
 - `/orgs/etzhayyim/com-etzhayyim-kuni-umi/README.md` — Robotics class lineage
-- `/CLAUDE.md` — Religious-corp status table
+- `/AGENTS.md` — Religious-corp status table
