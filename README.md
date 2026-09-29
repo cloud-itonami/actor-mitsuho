@@ -95,4 +95,4 @@ com.etzhayyim.mitsuho.{
 
 - `/90-docs/adr/2605261000-labor-liberation-transition-mechanism.md` — L2 gate
 - `/90-docs/adr/2605261015-mitsuho-food-agriculture-tier-b-actor-r0.md` — Master ADR
-- `/CLAUDE.md` — Religious-corp status table
+- `/AGENTS.md` — Religious-corp status table
